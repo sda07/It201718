@@ -143,7 +143,7 @@ def main():
 		# msvcrt.getch()
 		# print('----------------------------------')
 		# print(total['ROP'])
-		#print(total)
+		# print(total['CGHS'])
 	#sheet = wb_1.get_sheet_by_name('Sheet1')
 	sav = show_current_savings('Sheet1', str_in)
 	# print(all_details)
