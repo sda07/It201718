@@ -123,9 +123,11 @@ def main():
 	total = {}
 	for sh in wb.sheetnames:
 		# print(sh)
-
-		row_num = find_name(sh, str_in, wb)
-		all_details = find_net(sh, row_num, wb)
+		try:
+			row_num = find_name(sh, str_in, wb)
+			all_details = find_net(sh, row_num, wb)
+		except ValueError:
+			print("Name not found")
 		
 		# print(all_details)
 		
@@ -135,14 +137,17 @@ def main():
 			try:
 				total[val] += all_details[val]
 
+
 			except KeyError:
 				total = all_details
 				break
 			except TypeError:
 				pass
 		# msvcrt.getch()
+		
+		# print(all_details)
+		# print(total['SPLPAY'])
 		# print('----------------------------------')
-		# print(total['ROP'])
 		# print(total['CGHS'])
 	#sheet = wb_1.get_sheet_by_name('Sheet1')
 	sav = show_current_savings('Sheet1', str_in)
@@ -155,7 +160,10 @@ def main():
 	income_tax(summary, cal_sav)
 
 if __name__ == "__main__":
-	main() 
+	try: 
+		main() 
+	except ValueError:
+		print("Error:: Name not found")
 
 
 	#print(find_name(sh,str_in))
