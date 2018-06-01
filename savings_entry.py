@@ -54,13 +54,7 @@ def data_entry(sheet_name, emp_name):
 
     wb.save(filename = 'savings.xlsx')
 
-# def yearwise_calculation(sheet_name):
-
-def main2():
-    # str_in = input('Enter Name : ')
-    # show_current_savings('Sheet1',str_in, wb)
-    # data_entry('Sheet1',str_in)
-
+def yearwise_calculation(sheet_name):
     sheet = wb.get_sheet_by_name('Sheet2')
     emp_name = list(sheet.columns)[0]
     header = list(sheet.rows)[0]
@@ -132,6 +126,13 @@ def main2():
 
     wb.save(filename = 'savings.xlsx')
             
+
+
+def main2():
+    str_in = input('Enter Name : ')
+    show_current_savings('Sheet1',str_in, wb)
+    data_entry('Sheet1',str_in)
+
 
 
 
